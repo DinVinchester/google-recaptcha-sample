@@ -9,6 +9,15 @@
     <form action="post.php" method="post">
         <div class="g-recaptcha" data-sitekey="6LeuFQ0UAAAAAGrIx6ihIjeeBPz930eWdJ6k1Cea"></div>
         <button type="submit">Отправить</button>
+        <button type="button" id="reload">Обновить каптчу</button>
     </form>
+    <script type="text/javascript">
+        (function() {
+            var button = document.getElementById('reload');
+            button.addEventListener('click', function(e) {
+                grecaptcha.reset();
+            });
+        })();
+    </script>
 </body>
 </html>
