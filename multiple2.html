@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Google reCaptcha</title>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+</head>
+<body>
+<p>Пример демонстрирует добавления нескольких Google reCaptcha на сайт по клику мыши.</p>
+<a href="#" class="action">Добавить каптчу</a>
+<div id="google-recaptcha-container"></div>
+<script type="text/javascript" src="https://yastatic.net/jquery/3.1.0/jquery.js"></script>
+
+<script type="text/javascript">
+    $(function() {
+        $('.action').on('click', function(e) {
+            e.preventDefault();
+            var $container = $('#google-recaptcha-container');
+            var id = 'captcha-' + $container.find('div').length;
+            var $div = $('<div></div>');
+            $div.attr('id', id);
+            $container.append($div);
+            grecaptcha.render(id, {
+                'sitekey': '6LeuFQ0UAAAAAGrIx6ihIjeeBPz930eWdJ6k1Cea',
+                'theme': 'light'
+            });
+        });
+    });
+</script>
+</body>
+</html>
